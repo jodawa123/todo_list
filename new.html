@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='man.css'>
+</head>
+<body>
+    <div class="banner">
+        <h1>This is only the beginning....</h1>
+    </div>
+    <div class="buttons">
+        <input type="button" value="previous" id="prev">
+        <input type="button" value="next" id="next">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const colors = ["green", "red", "pink", "purple", "yellow"];
+            let currentColorIndex = 0;
+        
+            function changeColor(offset) {
+                currentColorIndex = (currentColorIndex + offset + colors.length) % colors.length;
+                document.getElementsByClassName("banner")[0].style.backgroundColor = colors[currentColorIndex];
+            }
+        
+            document.getElementById("prev").addEventListener("click", function () {
+                changeColor(-1);
+            });
+        
+            document.getElementById("next").addEventListener("click", function () {
+                changeColor(1);
+            });
+        });
+        
+    </script>
+</body>
+</html>
